@@ -94,7 +94,7 @@ py -m py_compile main.py
 
 ### 10. Pruebas del sistema
 
-El programa principal ejecuta 13 operaciones de prueba que incluyen:
+El programa principal ejecuta 15 operaciones de prueba que incluyen:
 
 - Registro de clientes válidos e inválidos.
 - Creación de servicios.
@@ -103,15 +103,19 @@ El programa principal ejecuta 13 operaciones de prueba que incluyen:
 - Cancelación de reservas.
 - Detección de clientes duplicados.
 - Manejo de operaciones no permitidas.
+- Cálculo de costos aplicando descuentos e impuestos simultáneamente
+- Validación de reservas con clientes inexistentes
 
 ### 11. Consideraciones
 
-La información se conserva en memoria durante la ejecución del programa. No se utiliza una base de datos.
-
-El archivo de logs permite conservar un registro de eventos y errores.
+La información del sistema Software FJ se administra completamente en memoria mediante listas internas durante la ejecución del programa, por lo que no se utiliza una base de datos externa ni persistencia en disco fuera del archivo de registro de eventos.
 
 ### 12. Conclusión
 
-Software FJ integra los principios fundamentales de la programación orientada a objetos mediante una arquitectura modular en Python.
+El desarrollo de esta aplicación permitió comprobar que una arquitectura modular basada en programación orientada a objetos (abstracción, encapsulación, herencia y polimorfismo) facilita el mantenimiento y la escalabilidad del software. 
+Asimismo, el uso de excepciones personalizadas, encadenamiento de errores, bloques de control y registro mediante logs garantiza la estabilidad del sistema al controlar entradas inválidas a lo largo de las 15 operaciones simuladas sin interrumpir su ejecución.
 
-Su estructura permite gestionar clientes, servicios y reservas, controlar errores y mantener la continuidad de ejecución ante operaciones incorrectas.
+### 13. Integrantes
+
+- Yajaira Melo
+- Angie Garavito
