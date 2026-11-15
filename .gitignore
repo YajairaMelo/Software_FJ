@@ -1,0 +1,15 @@
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales
+venv/
+.venv/
+
+# Archivos temporales
+*.tmp
+*.bak
+
+# Configuraciones locales
+.vscode/

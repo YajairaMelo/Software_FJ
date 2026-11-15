@@ -1,0 +1,678 @@
+2026-11-14 17:54:08 | INFO | Sistema iniciado correctamente
+2026-11-14 17:54:08 | WARNING | Prueba de advertencia
+2026-11-14 17:54:08 | ERROR | Prueba de error controlado
+2026-11-14 18:00:36 | INFO | Inicio de ejecucion de Software FJ.
+2026-11-14 18:00:36 | INFO | Operacion 1 exitosa: Registro de cliente valido
+2026-11-14 18:00:36 | INFO | Finalizada operacion 1.
+2026-11-14 18:00:36 | INFO | Operacion 2 exitosa: Registro de segundo cliente
+2026-11-14 18:00:36 | INFO | Finalizada operacion 2.
+2026-11-14 18:00:36 | ERROR | Operacion 3 fallida: Registro de cliente con correo invalido
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 51, in registrar_cliente
+    cliente = Cliente(
+        identificador,
+    ...<2 lines>...
+        telefono
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 54, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 68, in validar
+    raise ValueError("El correo electrónico no es válido.")
+ValueError: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 221, in operacion_3
+    return registrar_cliente(
+           ~~~~~~~~~~~~~~~~~^
+        "C003", "Carlos Ruiz", "correo_invalido", "3201234567"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).mostrar_informacion()
+    ^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 59, in registrar_cliente
+    raise DatosInvalidosError(
+        "No fue posible registrar el cliente."
+    ) from error
+software_fj.excepciones.DatosInvalidosError: No fue posible registrar el cliente.
+2026-11-14 18:00:36 | INFO | Finalizada operacion 3.
+2026-11-14 18:00:36 | INFO | Operacion 4 exitosa: Creacion de reserva de sala
+2026-11-14 18:00:36 | INFO | Finalizada operacion 4.
+2026-11-14 18:00:36 | INFO | Operacion 5 exitosa: Creacion de alquiler de equipo
+2026-11-14 18:00:36 | INFO | Finalizada operacion 5.
+2026-11-14 18:00:36 | INFO | Operacion 6 exitosa: Creacion de asesoria especializada
+2026-11-14 18:00:36 | INFO | Finalizada operacion 6.
+2026-11-14 18:00:36 | ERROR | Operacion 7 fallida: Creacion de servicio con capacidad invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 244, in operacion_7
+    sala_invalida = ReservaSala(
+        "Sala Invalida", 50000, -5
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 73, in __init__
+    self.validar_parametros()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 80, in validar_parametros
+    raise ValueError("La capacidad debe ser mayor que cero.")
+ValueError: La capacidad debe ser mayor que cero.
+2026-11-14 18:00:36 | INFO | Finalizada operacion 7.
+2026-11-14 18:00:36 | INFO | Reserva R001 procesada correctamente.
+2026-11-14 18:00:36 | INFO | Operacion 8 exitosa: Reserva confirmada y procesada
+2026-11-14 18:00:36 | INFO | Finalizada operacion 8.
+2026-11-14 18:00:36 | ERROR | Operacion 9 fallida: Intento de procesar reserva pendiente
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 152, in procesar_reserva_segura
+    resultado = reserva.procesar(impuesto, descuento)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 91, in procesar
+    raise RuntimeError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+RuntimeError: Solo se pueden procesar reservas confirmadas.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 272, in operacion_9
+    return procesar_reserva_segura(reserva)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 155, in procesar_reserva_segura
+    raise ProcesamientoError(
+        "Error durante el procesamiento de la reserva."
+    ) from error
+software_fj.excepciones.ProcesamientoError: Error durante el procesamiento de la reserva.
+2026-11-14 18:00:36 | INFO | Finalizada operacion 9.
+2026-11-14 18:00:36 | INFO | Operacion 10 exitosa: Cancelacion de reserva pendiente
+2026-11-14 18:00:36 | INFO | Finalizada operacion 10.
+2026-11-14 18:00:36 | ERROR | Operacion 11 fallida: Creacion de reserva con duracion invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 285, in operacion_11
+    return crear_reserva(
+        "R004", "C001", "Sala Principal", 0
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 137, in crear_reserva
+    reserva = Reserva(
+        identificador,
+    ...<2 lines>...
+        duracion
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 32, in __init__
+    raise ValueError("La duración debe ser mayor que cero.")
+ValueError: La duración debe ser mayor que cero.
+2026-11-14 18:00:36 | INFO | Finalizada operacion 11.
+2026-11-14 18:00:36 | ERROR | Operacion 12 fallida: Registro de cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 292, in operacion_12
+    return registrar_cliente(
+        "C001", "Ana Perez", "ana@gmail.com", "3001234567"
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 64, in registrar_cliente
+    raise ClienteDuplicadoError(
+        "El identificador del cliente ya existe."
+    )
+software_fj.excepciones.ClienteDuplicadoError: El identificador del cliente ya existe.
+2026-11-14 18:00:36 | INFO | Finalizada operacion 12.
+2026-11-14 18:00:36 | ERROR | Operacion 13 fallida: Intento de cancelar reserva procesada
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 304, in operacion_13
+    return reserva.cancelar()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 80, in cancelar
+    raise RuntimeError(
+        "No se puede cancelar una reserva procesada o cancelada."
+    )
+RuntimeError: No se puede cancelar una reserva procesada o cancelada.
+2026-11-14 18:00:36 | INFO | Finalizada operacion 13.
+2026-11-14 18:00:36 | INFO | Finalizacion de las pruebas de Software FJ.
+2026-11-14 18:06:26 | INFO | Inicio de ejecucion de Software FJ.
+2026-11-14 18:06:26 | INFO | Operacion 1 exitosa: Registro de cliente valido
+2026-11-14 18:06:26 | INFO | Finalizada operacion 1.
+2026-11-14 18:06:26 | INFO | Operacion 2 exitosa: Registro de segundo cliente
+2026-11-14 18:06:26 | INFO | Finalizada operacion 2.
+2026-11-14 18:06:26 | ERROR | Operacion 3 fallida: Registro de cliente con correo invalido
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 51, in registrar_cliente
+    cliente = Cliente(
+        identificador,
+    ...<2 lines>...
+        telefono
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 54, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 68, in validar
+    raise ValueError("El correo electrónico no es válido.")
+ValueError: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 221, in operacion_3
+    return registrar_cliente(
+           ~~~~~~~~~~~~~~~~~^
+        "C003", "Carlos Ruiz", "correo_invalido", "3201234567"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).mostrar_informacion()
+    ^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 59, in registrar_cliente
+    raise DatosInvalidosError(
+        "No fue posible registrar el cliente."
+    ) from error
+software_fj.excepciones.DatosInvalidosError: No fue posible registrar el cliente.
+2026-11-14 18:06:26 | INFO | Finalizada operacion 3.
+2026-11-14 18:06:26 | INFO | Operacion 4 exitosa: Creacion de reserva de sala
+2026-11-14 18:06:26 | INFO | Finalizada operacion 4.
+2026-11-14 18:06:26 | INFO | Operacion 5 exitosa: Creacion de alquiler de equipo
+2026-11-14 18:06:26 | INFO | Finalizada operacion 5.
+2026-11-14 18:06:26 | INFO | Operacion 6 exitosa: Creacion de asesoria especializada
+2026-11-14 18:06:26 | INFO | Finalizada operacion 6.
+2026-11-14 18:06:26 | ERROR | Operacion 7 fallida: Creacion de servicio con capacidad invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 244, in operacion_7
+    sala_invalida = ReservaSala(
+        "Sala Invalida", 50000, -5
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 73, in __init__
+    self.validar_parametros()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 80, in validar_parametros
+    raise ValueError("La capacidad debe ser mayor que cero.")
+ValueError: La capacidad debe ser mayor que cero.
+2026-11-14 18:06:26 | INFO | Finalizada operacion 7.
+2026-11-14 18:06:26 | INFO | Reserva R001 procesada correctamente.
+2026-11-14 18:06:26 | INFO | Operacion 8 exitosa: Reserva confirmada y procesada
+2026-11-14 18:06:26 | INFO | Finalizada operacion 8.
+2026-11-14 18:06:26 | ERROR | Operacion 9 fallida: Intento de procesar reserva pendiente
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 152, in procesar_reserva_segura
+    resultado = reserva.procesar(impuesto, descuento)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 91, in procesar
+    raise RuntimeError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+RuntimeError: Solo se pueden procesar reservas confirmadas.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 272, in operacion_9
+    return procesar_reserva_segura(reserva)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 155, in procesar_reserva_segura
+    raise ProcesamientoError(
+        "Error durante el procesamiento de la reserva."
+    ) from error
+software_fj.excepciones.ProcesamientoError: Error durante el procesamiento de la reserva.
+2026-11-14 18:06:26 | INFO | Finalizada operacion 9.
+2026-11-14 18:06:26 | INFO | Operacion 10 exitosa: Cancelacion de reserva pendiente
+2026-11-14 18:06:26 | INFO | Finalizada operacion 10.
+2026-11-14 18:06:26 | ERROR | Operacion 11 fallida: Creacion de reserva con duracion invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 285, in operacion_11
+    return crear_reserva(
+        "R004", "C001", "Sala Principal", 0
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 137, in crear_reserva
+    reserva = Reserva(
+        identificador,
+    ...<2 lines>...
+        duracion
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 32, in __init__
+    raise ValueError("La duración debe ser mayor que cero.")
+ValueError: La duración debe ser mayor que cero.
+2026-11-14 18:06:26 | INFO | Finalizada operacion 11.
+2026-11-14 18:06:26 | ERROR | Operacion 12 fallida: Registro de cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 292, in operacion_12
+    return registrar_cliente(
+        "C001", "Ana Perez", "ana@gmail.com", "3001234567"
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 64, in registrar_cliente
+    raise ClienteDuplicadoError(
+        "El identificador del cliente ya existe."
+    )
+software_fj.excepciones.ClienteDuplicadoError: El identificador del cliente ya existe.
+2026-11-14 18:06:26 | INFO | Finalizada operacion 12.
+2026-11-14 18:06:26 | ERROR | Operacion 13 fallida: Intento de cancelar reserva procesada
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 304, in operacion_13
+    return reserva.cancelar()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 80, in cancelar
+    raise RuntimeError(
+        "No se puede cancelar una reserva procesada o cancelada."
+    )
+RuntimeError: No se puede cancelar una reserva procesada o cancelada.
+2026-11-14 18:06:26 | INFO | Finalizada operacion 13.
+2026-11-14 18:06:26 | INFO | Finalizacion de las pruebas de Software FJ.
+2026-11-14 18:50:23 | INFO | Inicio de ejecucion de Software FJ.
+2026-11-14 18:50:23 | INFO | Operacion 1 exitosa: Registro de cliente valido
+2026-11-14 18:50:23 | INFO | Finalizada operacion 1.
+2026-11-14 18:50:23 | INFO | Operacion 2 exitosa: Registro de segundo cliente
+2026-11-14 18:50:23 | INFO | Finalizada operacion 2.
+2026-11-14 18:50:23 | ERROR | Operacion 3 fallida: Registro de cliente con correo invalido
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 51, in registrar_cliente
+    cliente = Cliente(
+        identificador,
+    ...<2 lines>...
+        telefono
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 54, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 68, in validar
+    raise ValueError("El correo electrónico no es válido.")
+ValueError: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 221, in operacion_3
+    return registrar_cliente(
+           ~~~~~~~~~~~~~~~~~^
+        "C003", "Carlos Ruiz", "correo_invalido", "3201234567"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).mostrar_informacion()
+    ^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 59, in registrar_cliente
+    raise DatosInvalidosError(
+        "No fue posible registrar el cliente."
+    ) from error
+software_fj.excepciones.DatosInvalidosError: No fue posible registrar el cliente.
+2026-11-14 18:50:23 | INFO | Finalizada operacion 3.
+2026-11-14 18:50:23 | INFO | Operacion 4 exitosa: Creacion de reserva de sala
+2026-11-14 18:50:23 | INFO | Finalizada operacion 4.
+2026-11-14 18:50:23 | INFO | Operacion 5 exitosa: Creacion de alquiler de equipo
+2026-11-14 18:50:23 | INFO | Finalizada operacion 5.
+2026-11-14 18:50:23 | INFO | Operacion 6 exitosa: Creacion de asesoria especializada
+2026-11-14 18:50:23 | INFO | Finalizada operacion 6.
+2026-11-14 18:50:23 | ERROR | Operacion 7 fallida: Creacion de servicio con capacidad invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 244, in operacion_7
+    sala_invalida = ReservaSala(
+        "Sala Invalida", 50000, -5
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 154, in __init__
+    self.validar_parametros()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 170, in validar_parametros
+    raise ValueError(
+        "La capacidad debe ser mayor que cero."
+    )
+ValueError: La capacidad debe ser mayor que cero.
+2026-11-14 18:50:23 | INFO | Finalizada operacion 7.
+2026-11-14 18:50:23 | INFO | Reserva R001 procesada correctamente.
+2026-11-14 18:50:23 | INFO | Operacion 8 exitosa: Reserva confirmada y procesada
+2026-11-14 18:50:23 | INFO | Finalizada operacion 8.
+2026-11-14 18:50:23 | ERROR | Operacion 9 fallida: Intento de procesar reserva pendiente
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 152, in procesar_reserva_segura
+    resultado = reserva.procesar(impuesto, descuento)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 91, in procesar
+    raise RuntimeError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+RuntimeError: Solo se pueden procesar reservas confirmadas.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 272, in operacion_9
+    return procesar_reserva_segura(reserva)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 155, in procesar_reserva_segura
+    raise ProcesamientoError(
+        "Error durante el procesamiento de la reserva."
+    ) from error
+software_fj.excepciones.ProcesamientoError: Error durante el procesamiento de la reserva.
+2026-11-14 18:50:23 | INFO | Finalizada operacion 9.
+2026-11-14 18:50:23 | INFO | Operacion 10 exitosa: Cancelacion de reserva pendiente
+2026-11-14 18:50:23 | INFO | Finalizada operacion 10.
+2026-11-14 18:50:23 | ERROR | Operacion 11 fallida: Creacion de reserva con duracion invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 285, in operacion_11
+    return crear_reserva(
+        "R004", "C001", "Sala Principal", 0
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 137, in crear_reserva
+    reserva = Reserva(
+        identificador,
+    ...<2 lines>...
+        duracion
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 32, in __init__
+    raise ValueError("La duración debe ser mayor que cero.")
+ValueError: La duración debe ser mayor que cero.
+2026-11-14 18:50:23 | INFO | Finalizada operacion 11.
+2026-11-14 18:50:23 | ERROR | Operacion 12 fallida: Registro de cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 292, in operacion_12
+    return registrar_cliente(
+        "C001", "Ana Perez", "ana@gmail.com", "3001234567"
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 64, in registrar_cliente
+    raise ClienteDuplicadoError(
+        "El identificador del cliente ya existe."
+    )
+software_fj.excepciones.ClienteDuplicadoError: El identificador del cliente ya existe.
+2026-11-14 18:50:23 | INFO | Finalizada operacion 12.
+2026-11-14 18:50:23 | ERROR | Operacion 13 fallida: Intento de cancelar reserva procesada
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 304, in operacion_13
+    return reserva.cancelar()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 80, in cancelar
+    raise RuntimeError(
+        "No se puede cancelar una reserva procesada o cancelada."
+    )
+RuntimeError: No se puede cancelar una reserva procesada o cancelada.
+2026-11-14 18:50:23 | INFO | Finalizada operacion 13.
+2026-11-14 18:50:23 | INFO | Finalizacion de las pruebas de Software FJ.
+2026-11-14 19:00:18 | INFO | Inicio de ejecucion de Software FJ.
+2026-11-14 19:00:18 | INFO | Operacion 1 exitosa: Registro de cliente valido
+2026-11-14 19:00:18 | INFO | Finalizada operacion 1.
+2026-11-14 19:00:18 | INFO | Operacion 2 exitosa: Registro de segundo cliente
+2026-11-14 19:00:18 | INFO | Finalizada operacion 2.
+2026-11-14 19:00:18 | ERROR | Operacion 3 fallida: Registro de cliente con correo invalido
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 51, in registrar_cliente
+    cliente = Cliente(
+        identificador,
+    ...<2 lines>...
+        telefono
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 80, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 106, in validar
+    raise ValueError(
+        "El correo electrónico no es válido."
+    )
+ValueError: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 221, in operacion_3
+    return registrar_cliente(
+           ~~~~~~~~~~~~~~~~~^
+        "C003", "Carlos Ruiz", "correo_invalido", "3201234567"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).mostrar_informacion()
+    ^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 59, in registrar_cliente
+    raise DatosInvalidosError(
+        "No fue posible registrar el cliente."
+    ) from error
+software_fj.excepciones.DatosInvalidosError: No fue posible registrar el cliente.
+2026-11-14 19:00:18 | INFO | Finalizada operacion 3.
+2026-11-14 19:00:18 | INFO | Operacion 4 exitosa: Creacion de reserva de sala
+2026-11-14 19:00:18 | INFO | Finalizada operacion 4.
+2026-11-14 19:00:18 | INFO | Operacion 5 exitosa: Creacion de alquiler de equipo
+2026-11-14 19:00:18 | INFO | Finalizada operacion 5.
+2026-11-14 19:00:18 | INFO | Operacion 6 exitosa: Creacion de asesoria especializada
+2026-11-14 19:00:18 | INFO | Finalizada operacion 6.
+2026-11-14 19:00:18 | ERROR | Operacion 7 fallida: Creacion de servicio con capacidad invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 244, in operacion_7
+    sala_invalida = ReservaSala(
+        "Sala Invalida", 50000, -5
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 154, in __init__
+    self.validar_parametros()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 170, in validar_parametros
+    raise ValueError(
+        "La capacidad debe ser mayor que cero."
+    )
+ValueError: La capacidad debe ser mayor que cero.
+2026-11-14 19:00:18 | INFO | Finalizada operacion 7.
+2026-11-14 19:00:18 | INFO | Reserva R001 procesada correctamente.
+2026-11-14 19:00:18 | INFO | Operacion 8 exitosa: Reserva confirmada y procesada
+2026-11-14 19:00:18 | INFO | Finalizada operacion 8.
+2026-11-14 19:00:18 | ERROR | Operacion 9 fallida: Intento de procesar reserva pendiente
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 152, in procesar_reserva_segura
+    resultado = reserva.procesar(impuesto, descuento)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 91, in procesar
+    raise RuntimeError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+RuntimeError: Solo se pueden procesar reservas confirmadas.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 272, in operacion_9
+    return procesar_reserva_segura(reserva)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 155, in procesar_reserva_segura
+    raise ProcesamientoError(
+        "Error durante el procesamiento de la reserva."
+    ) from error
+software_fj.excepciones.ProcesamientoError: Error durante el procesamiento de la reserva.
+2026-11-14 19:00:18 | INFO | Finalizada operacion 9.
+2026-11-14 19:00:18 | INFO | Operacion 10 exitosa: Cancelacion de reserva pendiente
+2026-11-14 19:00:18 | INFO | Finalizada operacion 10.
+2026-11-14 19:00:18 | ERROR | Operacion 11 fallida: Creacion de reserva con duracion invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 285, in operacion_11
+    return crear_reserva(
+        "R004", "C001", "Sala Principal", 0
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 137, in crear_reserva
+    reserva = Reserva(
+        identificador,
+    ...<2 lines>...
+        duracion
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 32, in __init__
+    raise ValueError("La duración debe ser mayor que cero.")
+ValueError: La duración debe ser mayor que cero.
+2026-11-14 19:00:18 | INFO | Finalizada operacion 11.
+2026-11-14 19:00:18 | ERROR | Operacion 12 fallida: Registro de cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 292, in operacion_12
+    return registrar_cliente(
+        "C001", "Ana Perez", "ana@gmail.com", "3001234567"
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 64, in registrar_cliente
+    raise ClienteDuplicadoError(
+        "El identificador del cliente ya existe."
+    )
+software_fj.excepciones.ClienteDuplicadoError: El identificador del cliente ya existe.
+2026-11-14 19:00:18 | INFO | Finalizada operacion 12.
+2026-11-14 19:00:18 | ERROR | Operacion 13 fallida: Intento de cancelar reserva procesada
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 304, in operacion_13
+    return reserva.cancelar()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 80, in cancelar
+    raise RuntimeError(
+        "No se puede cancelar una reserva procesada o cancelada."
+    )
+RuntimeError: No se puede cancelar una reserva procesada o cancelada.
+2026-11-14 19:00:18 | INFO | Finalizada operacion 13.
+2026-11-14 19:00:18 | INFO | Finalizacion de las pruebas de Software FJ.
+2026-11-14 19:12:55 | INFO | Inicio de ejecucion de Software FJ.
+2026-11-14 19:12:55 | INFO | Operacion 1 exitosa: Registro de cliente valido
+2026-11-14 19:12:55 | INFO | Finalizada operacion 1.
+2026-11-14 19:12:55 | INFO | Operacion 2 exitosa: Registro de segundo cliente
+2026-11-14 19:12:55 | INFO | Finalizada operacion 2.
+2026-11-14 19:12:55 | ERROR | Operacion 3 fallida: Registro de cliente con correo invalido
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 51, in registrar_cliente
+    cliente = Cliente(
+        identificador,
+    ...<2 lines>...
+        telefono
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 80, in __init__
+    self.validar()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\entidades.py", line 106, in validar
+    raise ValueError(
+        "El correo electrónico no es válido."
+    )
+ValueError: El correo electrónico no es válido.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 221, in operacion_3
+    return registrar_cliente(
+           ~~~~~~~~~~~~~~~~~^
+        "C003", "Carlos Ruiz", "correo_invalido", "3201234567"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).mostrar_informacion()
+    ^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 59, in registrar_cliente
+    raise DatosInvalidosError(
+        "No fue posible registrar el cliente."
+    ) from error
+software_fj.excepciones.DatosInvalidosError: No fue posible registrar el cliente.
+2026-11-14 19:12:55 | INFO | Finalizada operacion 3.
+2026-11-14 19:12:55 | INFO | Operacion 4 exitosa: Creacion de reserva de sala
+2026-11-14 19:12:55 | INFO | Finalizada operacion 4.
+2026-11-14 19:12:55 | INFO | Operacion 5 exitosa: Creacion de alquiler de equipo
+2026-11-14 19:12:55 | INFO | Finalizada operacion 5.
+2026-11-14 19:12:55 | INFO | Operacion 6 exitosa: Creacion de asesoria especializada
+2026-11-14 19:12:55 | INFO | Finalizada operacion 6.
+2026-11-14 19:12:55 | ERROR | Operacion 7 fallida: Creacion de servicio con capacidad invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 244, in operacion_7
+    sala_invalida = ReservaSala(
+        "Sala Invalida", 50000, -5
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 154, in __init__
+    self.validar_parametros()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\servicios.py", line 170, in validar_parametros
+    raise ValueError(
+        "La capacidad debe ser mayor que cero."
+    )
+ValueError: La capacidad debe ser mayor que cero.
+2026-11-14 19:12:55 | INFO | Finalizada operacion 7.
+2026-11-14 19:12:55 | INFO | Reserva R001 procesada correctamente.
+2026-11-14 19:12:55 | INFO | Operacion 8 exitosa: Reserva confirmada y procesada
+2026-11-14 19:12:55 | INFO | Finalizada operacion 8.
+2026-11-14 19:12:55 | ERROR | Operacion 9 fallida: Intento de procesar reserva pendiente
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 152, in procesar_reserva_segura
+    resultado = reserva.procesar(impuesto, descuento)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 91, in procesar
+    raise RuntimeError(
+        "Solo se pueden procesar reservas confirmadas."
+    )
+RuntimeError: Solo se pueden procesar reservas confirmadas.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 272, in operacion_9
+    return procesar_reserva_segura(reserva)
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 155, in procesar_reserva_segura
+    raise ProcesamientoError(
+        "Error durante el procesamiento de la reserva."
+    ) from error
+software_fj.excepciones.ProcesamientoError: Error durante el procesamiento de la reserva.
+2026-11-14 19:12:55 | INFO | Finalizada operacion 9.
+2026-11-14 19:12:55 | INFO | Operacion 10 exitosa: Cancelacion de reserva pendiente
+2026-11-14 19:12:55 | INFO | Finalizada operacion 10.
+2026-11-14 19:12:55 | ERROR | Operacion 11 fallida: Creacion de reserva con duracion invalida
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 285, in operacion_11
+    return crear_reserva(
+        "R004", "C001", "Sala Principal", 0
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 137, in crear_reserva
+    reserva = Reserva(
+        identificador,
+    ...<2 lines>...
+        duracion
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 32, in __init__
+    raise ValueError("La duración debe ser mayor que cero.")
+ValueError: La duración debe ser mayor que cero.
+2026-11-14 19:12:55 | INFO | Finalizada operacion 11.
+2026-11-14 19:12:55 | ERROR | Operacion 12 fallida: Registro de cliente duplicado
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 292, in operacion_12
+    return registrar_cliente(
+        "C001", "Ana Perez", "ana@gmail.com", "3001234567"
+    )
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 64, in registrar_cliente
+    raise ClienteDuplicadoError(
+        "El identificador del cliente ya existe."
+    )
+software_fj.excepciones.ClienteDuplicadoError: El identificador del cliente ya existe.
+2026-11-14 19:12:55 | INFO | Finalizada operacion 12.
+2026-11-14 19:12:55 | ERROR | Operacion 13 fallida: Intento de cancelar reserva procesada
+Traceback (most recent call last):
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 183, in ejecutar_operacion
+    resultado = funcion()
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\main.py", line 304, in operacion_13
+    return reserva.cancelar()
+           ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\YAJAIRA\Desktop\Software_FJ\software_fj\reservas.py", line 80, in cancelar
+    raise RuntimeError(
+        "No se puede cancelar una reserva procesada o cancelada."
+    )
+RuntimeError: No se puede cancelar una reserva procesada o cancelada.
+2026-11-14 19:12:55 | INFO | Finalizada operacion 13.
+2026-11-14 19:12:55 | INFO | Finalizacion de las pruebas de Software FJ.
