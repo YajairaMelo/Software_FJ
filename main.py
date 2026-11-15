@@ -332,6 +332,8 @@ def main():
         ("Creacion de reserva con duracion invalida", operacion_11),
         ("Registro de cliente duplicado", operacion_12),
         ("Intento de cancelar reserva procesada", operacion_13)
+        ("Reserva con descuento e impuesto aplicados", operacion_14)
+        ("Intento de reserva con el cliente inexistente", operacion_15)
     ]
 
     for numero, (descripcion, funcion) in enumerate(
@@ -356,3 +358,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def operacion_14():
+    # Crea una reserva valida para el cliente C002 usando el servicio de Consultoria por 2 horas
+    reserva = crear_reserva("R005", "C002", "Consultoria", 2)
+    # Confirma el estado de la reserva antes de procesarla
+    reserva.confirmar()
+    # Procesa el pago aplicando sobrecarga de parametros: 19% de impuestos y 10% de descuento
+    costo = procesar_reserva_segura(reserva, impuestos=19, descuento=10)
+    # Retorna el resumen detallando junto con el valor total calculado
+    return reserva.mostrar_resumen() +f"\nCosto final con descuento e IVA: ${costo}"
+
+
+def operacion_15()
+   # Intenta crear una reserva usando un cliente inexistente para validar el manejo de errores
+   return crear_reserva("R006", "C999", "Sala Principal", 2)
+    
