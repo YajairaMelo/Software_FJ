@@ -355,7 +355,6 @@ def main():
 
     registrar_evento("Finalizacion de las pruebas de Software FJ.")
 
-
 def operacion_14():
     # Crea una reserva valida para el cliente C002 usando el servicio de Consultoria por 2 horas
     reserva = crear_reserva("R005", "C002", "Consultoria", 2)
@@ -365,7 +364,6 @@ def operacion_14():
     costo = procesar_reserva_segura(reserva, impuestos=19, descuento=10)
     # Retorna el resumen detallando junto con el valor total calculado
     return reserva.mostrar_resumen() +f"\nCosto final con descuento e IVA: ${costo}"
-
 
 def operacion_15()
    # Intenta crear una reserva usando un cliente inexistente para validar el manejo de errores
