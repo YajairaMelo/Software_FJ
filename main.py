@@ -356,10 +356,6 @@ def main():
     registrar_evento("Finalizacion de las pruebas de Software FJ.")
 
 
-if __name__ == "__main__":
-    main()
-
-
 def operacion_14():
     # Crea una reserva valida para el cliente C002 usando el servicio de Consultoria por 2 horas
     reserva = crear_reserva("R005", "C002", "Consultoria", 2)
@@ -374,4 +370,8 @@ def operacion_14():
 def operacion_15()
    # Intenta crear una reserva usando un cliente inexistente para validar el manejo de errores
    return crear_reserva("R006", "C999", "Sala Principal", 2)
+
+
+if __name__ == "__main__":
+    main()
     
