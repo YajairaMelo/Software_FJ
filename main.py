@@ -331,8 +331,8 @@ def main():
         ("Cancelacion de reserva pendiente", operacion_10),
         ("Creacion de reserva con duracion invalida", operacion_11),
         ("Registro de cliente duplicado", operacion_12),
-        ("Intento de cancelar reserva procesada", operacion_13)
-        ("Reserva con descuento e impuesto aplicados", operacion_14)
+        ("Intento de cancelar reserva procesada", operacion_13),
+        ("Reserva con descuento e impuesto aplicados", operacion_14),
         ("Intento de reserva con el cliente inexistente", operacion_15)
     ]
 
@@ -365,7 +365,7 @@ def operacion_14():
     # Retorna el resumen detallando junto con el valor total calculado
     return reserva.mostrar_resumen() +f"\nCosto final con descuento e IVA: ${costo}"
 
-def operacion_15()
+def operacion_15():
    # Intenta crear una reserva usando un cliente inexistente para validar el manejo de errores
    return crear_reserva("R006", "C999", "Sala Principal", 2)
 
