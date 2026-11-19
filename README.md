@@ -119,3 +119,4 @@ Asimismo, el uso de excepciones personalizadas, encadenamiento de errores, bloqu
 
 - Yajaira Melo
 - Angie Garavito
+- Brayan López
