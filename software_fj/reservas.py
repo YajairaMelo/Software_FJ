@@ -1,3 +1,4 @@
+# Módulo de gestión y ciclo de vida de reservas - Software FJ
 
 from software_fj.entidades import Cliente
 from software_fj.servicios import Servicio
@@ -40,26 +41,32 @@ class Reserva:
 
     @property
     def identificador(self):
+        """Devuelve el identificador único de la reserva."""
         return self.__identificador
 
     @property
     def cliente(self):
+        """Devuelve el objeto Cliente asociado a la reserva."""
         return self.__cliente
 
     @property
     def servicio(self):
+        """Devuelve el objeto Servicio contratado en la reserva."""
         return self.__servicio
 
     @property
     def duracion(self):
+        """Devuelve la duración contratada del servicio."""
         return self.__duracion
 
     @property
     def estado(self):
+        """Devuelve el estado actual de la reserva."""
         return self.__estado
 
     @property
     def costo_total(self):
+        """Devuelve el costo total calculado una vez procesada la reserva."""
         return self.__costo_total
 
     def confirmar(self):
@@ -119,4 +126,3 @@ class Reserva:
             f"Estado: {self.__estado}\n"
             f"Costo: {self.__costo_total}"
         )
-    
