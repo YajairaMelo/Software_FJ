@@ -103,8 +103,8 @@ El programa principal ejecuta 15 operaciones de prueba que incluyen:
 - Cancelación de reservas.
 - Detección de clientes duplicados.
 - Manejo de operaciones no permitidas.
-- Cálculo de costos aplicando descuentos e impuestos simultáneamente
-- Validación de reservas con clientes inexistentes
+- Cálculo de costos aplicando descuentos e impuestos simultáneamente.
+- Validación de reservas con clientes inexistentes.
 
 ### 11. Consideraciones
 
