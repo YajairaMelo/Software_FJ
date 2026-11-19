@@ -1,3 +1,4 @@
+# Módulo de entidades base y gestión de clientes - Software FJ
 
 from abc import ABC, abstractmethod
 import re
@@ -129,14 +130,17 @@ class Cliente(Entidad):
 
     @property
     def nombre(self):
+        """Devuelve el nombre encapsulado del cliente."""
         return self.__nombre
 
     @property
     def correo(self):
+        """Devuelve el correo electrónico del cliente."""
         return self.__correo
 
     @property
     def telefono(self):
+        """Devuelve el número de teléfono del cliente."""
         return self.__telefono
 
     # ==============================================
@@ -144,7 +148,7 @@ class Cliente(Entidad):
     # ==============================================
 
     def mostrar_informacion(self):
-        """Devuelve la información del cliente."""
+        """Devuelve la información formateada del cliente."""
 
         return (
             f"ID: {self.identificador} | "
