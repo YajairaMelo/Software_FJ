@@ -1,3 +1,4 @@
+# Módulo de catálogo de servicios y cálculo de tarifas - Software FJ
 
 from abc import ABC, abstractmethod
 import math
@@ -46,10 +47,12 @@ class Servicio(ABC):
 
     @property
     def nombre(self):
+        """Devuelve el nombre del servicio."""
         return self.__nombre
 
     @property
     def tarifa_base(self):
+        """Devuelve la tarifa base numérica del servicio."""
         return self.__tarifa_base
 
     # ==============================================
@@ -59,9 +62,9 @@ class Servicio(ABC):
     def _calcular_total(self, duracion, impuesto=0, descuento=0):
         """
         Calcula el costo total considerando:
-        - Duración del servicio.
-        - Impuesto porcentual.
-        - Descuento porcentual.
+- Duración del servicio.
+- Impuesto porcentual.
+- Descuento porcentual.
         """
 
         valores = {
@@ -155,6 +158,7 @@ class ReservaSala(Servicio):
 
     @property
     def capacidad(self):
+        """Devuelve la capacidad máxima de personas de la sala."""
         return self.__capacidad
 
     def validar_parametros(self):
@@ -205,6 +209,7 @@ class AlquilerEquipo(Servicio):
 
     @property
     def tipo_equipo(self):
+        """Devuelve el tipo de equipo disponible para alquiler."""
         return self.__tipo_equipo
 
     def validar_parametros(self):
@@ -253,6 +258,7 @@ class AsesoriaEspecializada(Servicio):
 
     @property
     def especialidad(self):
+        """Devuelve el área de especialidad de la asesoría."""
         return self.__especialidad
 
     def validar_parametros(self):
