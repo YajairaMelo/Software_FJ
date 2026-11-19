@@ -1,3 +1,4 @@
+# Módulo principal de ejecución y pruebas integrales - Software FJ
 
 """
 SOFTWARE FJ
@@ -304,6 +305,24 @@ def operacion_13():
     return reserva.cancelar()
 
 
+def operacion_14():
+    """Ejecuta una reserva con impuesto y descuento aplicados."""
+    # Crea una reserva valida para el cliente C002 usando el servicio de Consultoria por 2 horas
+    reserva = crear_reserva("R005", "C002", "Consultoria", 2)
+    # Confirma el estado de la reserva antes de procesarla
+    reserva.confirmar()
+    # Procesa el pago aplicando impuesto del 19% y descuento del 10%
+    costo = procesar_reserva_segura(reserva, impuesto=19, descuento=10)
+    # Retorna el resumen detallado junto con el valor total calculado
+    return reserva.mostrar_resumen() + f"\nCosto final con descuento e IVA: ${costo}"
+
+
+def operacion_15():
+    """Valida el manejo de error al intentar reservar con un cliente inexistente."""
+    # Intenta crear una reserva usando un cliente inexistente para validar el manejo de errores
+    return crear_reserva("R006", "C999", "Sala Principal", 2)
+
+
 # ==================================================
 # PROGRAMA PRINCIPAL
 # ==================================================
@@ -355,21 +374,6 @@ def main():
 
     registrar_evento("Finalizacion de las pruebas de Software FJ.")
 
-def operacion_14():
-    # Crea una reserva valida para el cliente C002 usando el servicio de Consultoria por 2 horas
-    reserva = crear_reserva("R005", "C002", "Consultoria", 2)
-    # Confirma el estado de la reserva antes de procesarla
-    reserva.confirmar()
-    # Procesa el pago aplicando sobrecarga de parametros: 19% de impuestos y 10% de descuento
-    costo = procesar_reserva_segura(reserva, impuestos=19, descuento=10)
-    # Retorna el resumen detallando junto con el valor total calculado
-    return reserva.mostrar_resumen() +f"\nCosto final con descuento e IVA: ${costo}"
-
-def operacion_15():
-   # Intenta crear una reserva usando un cliente inexistente para validar el manejo de errores
-   return crear_reserva("R006", "C999", "Sala Principal", 2)
-
 
 if __name__ == "__main__":
     main()
-    
